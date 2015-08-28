@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="Anglify">
+<head>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<!-- bootstrap -->
+	<link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<title>Anglify</title>
+
+	<!-- angular -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.4/angular.min.js"></script>
+	<!-- custom -->
+	<script type="text/javascript" src="app.js"></script>
+</head>
+<body ng-controller="MainCtrl">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h1>Anglify</h1>
+				<form ng-submit="searchTag()" class="form-inline">
+					<div class="form-group">
+						<input type="text" ng-model="tag" class="form-control" placeholder="Search for a track or artist">
+					</div>
+					<input type="submit" value="Search" class="btn btn-danger">
+				</form>
+
+				<!-- <p>{{tag}}</p> -->
+
+			</div>
+		</div>
+	</div>
+
+
+</body>
+</html>

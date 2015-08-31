@@ -10,7 +10,7 @@ angular.module('Anglify', [])
 			$http.get(url)
 			// console.log($scope.tag);
 			.then(function (response) {
-				console.log(response.data.tracks.items[0].preview_url);
+				console.log(response.data.tracks.items[0].external_urls.spotify);
 				$scope.photos = response.data.tracks.items
 			});
 		};

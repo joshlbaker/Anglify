@@ -12,6 +12,26 @@
 		body{
 			background-color: #262626;
 		}
+		.form-inline {
+		  padding: 2px 5px;
+		  width:100%;
+		  border-radius: 10px;
+		  -moz-border-radius: 10px;
+		  -webkit-border-radius: 10px
+		}
+		.form-inline input {
+			border: none;
+			font:16px/15px 'HelveticaNeue', Helvetica, Arial, sans-serif;
+			margin-right: 5px;
+			padding: 10px;
+			width: 75px;
+			-moz-box-shadow: 0 0 4px rgba(0,0,0,.4) inset, 1px 1px 1px rgba(255,255,255,.75);
+			-webkit-box-shadow: 0 0 4px rgba(0,0,0,.4) inset, 1px 1px 1px rgba(255,255,255,.75);
+		  border-radius: 9px;
+		  -moz-border-radius: 9px;
+		  -webkit-border-radius: 9px
+		}
+
 	</style>
 	<!-- angular -->
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.4/angular.min.js"></script>
@@ -44,11 +64,11 @@
 						<img ng-src="{{photo.album.images[0].url}}">
 						<br>
 						<!-- Artist name -->
-						<p>{{photo.artists[0].name}}</p>
+						<p style="font-size:18px;"><b>{{photo.artists[0].name}}</b></p>
 						<!-- song name -->
-						<p>{{photo.name}}</p>
+						<p style="font-size:16px;">{{photo.name}}</p>
 						<!-- audio preview -->
-						<audio ng-src="{{photo.preview_url}}" controls="controls">
+						<a ng-href="{{photo.external_urls.spotify}}"><div class="glyphicon glyphicon-play" style="font-size:20px;"></div>Listen on Spotify</a>
 						</div>
 					</div>
 

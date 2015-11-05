@@ -1,10 +1,14 @@
-@import url('https://fonts.googleapis.com/css?family=Quicksand|Poiret+One|Noto+Sans');
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
 body {
   overflow-y: scroll;
-font-family: 'Noto Sans', sans-serif;}
+  font-family: 'Roboto', sans-serif;
+}
 .thumbnail{
-  height: 300px;
-  width: 300px;
+  height:auto;
+  width: auto;
+  max-height: 500px;
+  max-width: 500px;
 }
 
 a {
@@ -13,6 +17,10 @@ a {
 }
 a:hover {
   text-decoration: underline;
+}
+header{
+  /*width: 90%;*/
+  z-index: -1
 }
 #results{
   padding-top: 75px;
@@ -67,8 +75,9 @@ a:hover {
   width: 50%;
   height: 40px;
   line-height: 40px;
-  font-size: 2.0em;
+  font-size: 1.5em;
   color: #676767;
+  z-index: 3;
 }
 
 #searchsubmit {

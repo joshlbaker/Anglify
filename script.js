@@ -23,4 +23,5 @@ $(function(){
   $('#searchform').submit(function(e){
     e.preventDefault(); // stop form submission
   });
+
 });

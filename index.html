@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="Anglify">
 <head>
-
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-
 	<!-- bootstrap -->
 	<link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 	<!-- ionicons -->
@@ -19,49 +17,39 @@
 	<script type="text/javascript" src="app.js"></script>
 </head>
 <body ng-controller="MainCtrl">
-
 	<div class="container">
-
 		<div class="row">
-
 			<div class="col-md-12">
+				<!-- GitHub link -->
 				<a target="_blank" href="https://github.com/720kb/angular-background">
-			    <img style="position: fixed; top: 0; right: 0; border: 0; z-index:999999" src="https://camo.githubusercontent.com/52760788cde945287fbb584134c4cbc2bc36f904/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f77686974655f6666666666662e706e67" alt="Github Source" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png">
+			    <img style="position: fixed; top: 0; right: 0; border: 0; z-index:1" src="https://camo.githubusercontent.com/52760788cde945287fbb584134c4cbc2bc36f904/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f77686974655f6666666666662e706e67" alt="Github Source" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png">
 			  </a>
-
 				<br>
-				<div id="w">
-
-				<header id="topbar" class="clearfix">
-				    <div id="logo">Anglify</div>
-				    <nav id="topnav">
-							<form ng-submit="searchTag()" class="item item-input-inset" id="searchform" method="get" action="searchpage.php">
-								<button id="searchsubmit" class="fa fa-search fa-4x"></button>
-								<input type="search" ng-model="tag" class="form-control" id="s" placeholder= "Search by track or artist.." autocomplete="on">
-							</form>
-				    </nav>
-				  </header>
-
-
-
+				<div id="main">
+					<header id="topbar" class="clearfix">
+					  <div id="logo">Anglify</div>
+					    <nav id="topnav">
+								<form ng-submit="searchTag()" class="item item-input-inset" id="searchform" method="get">
+									<button id="searchsubmit" class="fa fa-search fa-4x"></button>
+									<input type="search" ng-model="tag" class="form-control" id="s" placeholder= "Search by track or artist.." autocomplete="on">
+								</form>
+					    </nav>
+					</header>
 				</div>
 				<br>
 				<div class="row" ng-show="tracks.length > 0"></div>
 					<div class="col-md-4" ng-repeat="track in tracks" id="results">
-							<!-- <br> -->
 							<!-- Artist name -->
 							<p><b>{{ track.artists[0].name }}</b></p>
 							<!-- song name -->
-							<p>{{ track.name }}</p>
+							<p>{{ track.tag }}</p>
 							<!-- album image -->
 							<div class="thumbnail">
 								<img ng-src="{{ track.album.images[0].url }}">
 							</div>
-
 							<!-- audio preview -->
 							<a ng-href="{{track.preview_url}}" id="prevUrl">&nbsp;&nbsp;<div class="glyphicon glyphicon-play" style="font-size:15px;"></div>&nbsp;&nbsp;&nbsp;Listen on Spotify</a>
 					</div>
-
  			</div>
 		</div>
 	</div>

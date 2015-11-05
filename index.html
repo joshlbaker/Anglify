@@ -4,76 +4,76 @@
 
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	
+
 	<!-- bootstrap -->
 	<link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-	<title>Anglify</title>
-	<style>
-		body{
-			background-color: #262626;
-		}
-		.form-inline {
-		  padding: 2px 5px;
-		  width:100%;
-		  border-radius: 10px;
-		  -moz-border-radius: 10px;
-		  -webkit-border-radius: 10px
-		}
-		.form-inline input {
-			border: none;
-			font:16px/15px 'HelveticaNeue', Helvetica, Arial, sans-serif;
-			margin-right: 5px;
-			padding: 10px;
-			width: 75px;
-			-moz-box-shadow: 0 0 4px rgba(0,0,0,.4) inset, 1px 1px 1px rgba(255,255,255,.75);
-			-webkit-box-shadow: 0 0 4px rgba(0,0,0,.4) inset, 1px 1px 1px rgba(255,255,255,.75);
-		  border-radius: 9px;
-		  -moz-border-radius: 9px;
-		  -webkit-border-radius: 9px
-		}
+	<!-- ionicons -->
+	<link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+	<!-- custom css -->
+	<link type="text/css" rel="stylesheet" href="style.css">
 
-	</style>
+	<title>Anglify</title>
 	<!-- angular -->
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.4/angular.min.js"></script>
-	<!-- soundcloud -->
-	<script src="https://w.soundcloud.com/player/api.js" type="text/javascript"></script>
 	<!-- custom -->
 	<script type="text/javascript" src="app.js"></script>
 </head>
 <body ng-controller="MainCtrl">
+
 	<div class="container">
+
 		<div class="row">
+
 			<div class="col-md-12">
-				<h1 style="color: white; text-align: center;">Anglify</h1>
-				<form ng-submit="searchTag()" class="form-inline"  align="center">
-					<div class="form-group">
-						<input type="text" ng-model="tag" class="form-control" placeholder="Search for a track or artist">
-					</div>
-					<input type="submit" value="Search" class="btn btn-danger">
-				</form>
+				<a target="_blank" href="https://github.com/720kb/angular-background">
+			    <img style="position: fixed; top: 0; right: 0; border: 0; z-index:999999" src="https://camo.githubusercontent.com/52760788cde945287fbb584134c4cbc2bc36f904/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f77686974655f6666666666662e706e67" alt="Github Source" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png">
+			  </a>
+
 				<br>
-				<br>
-				<div>
-					<iframe id="sc-widget" src="https://w.soundcloud.com/player/?url=http://api.soundcloud.com/users/1539950/favorites" width="100%" height="150" scrolling="no" frameborder="no"></iframe>				
+				<div id="w">
+
+				<header id="topbar" class="clearfix">
+				    <div id="logo">Anglify</div>
+				    <nav id="topnav">
+							<form ng-submit="searchTag()" class="item item-input-inset" id="searchform" method="get" action="searchpage.php">
+								<button id="searchsubmit" class="fa fa-search fa-4x"></button>
+								<input type="search" ng-model="tag" class="form-control" id="s" placeholder= "Search by track or artist.." autocomplete="on">
+							</form>
+				    </nav>
+				  </header>
+
+
+
 				</div>
 				<br>
-				<br>
-				<div class="row" ng-show="photos.length > 0"></div>
-					<div class="col-md-4" ng-repeat="photo in photos">
-						<div class="thumbnail">
-						<img ng-src="{{photo.album.images[0].url}}">
-						<br>
-						<!-- Artist name -->
-						<p style="font-size:18px;"><b>{{photo.artists[0].name}}</b></p>
-						<!-- song name -->
-						<p style="font-size:16px;">{{photo.name}}</p>
-						<!-- audio preview -->
-						<a ng-href="{{photo.external_urls.spotify}}"><div class="glyphicon glyphicon-play" style="font-size:20px;"></div>Listen on Spotify</a>
-						</div>
+				<div class="row" ng-show="tracks.length > 0"></div>
+					<div class="col-md-4" ng-repeat="track in tracks" id="results">
+							<!-- <br> -->
+							<!-- Artist name -->
+							<p><b>{{ track.artists[0].name }}</b></p>
+							<!-- song name -->
+							<p>{{ track.name }}</p>
+							<!-- album image -->
+							<div class="thumbnail">
+								<img ng-src="{{ track.album.images[0].url }}">
+							</div>
+
+							<!-- audio preview -->
+							<a ng-href="{{track.preview_url}}" id="prevUrl">&nbsp;&nbsp;<div class="glyphicon glyphicon-play" style="font-size:15px;"></div>&nbsp;&nbsp;&nbsp;Listen on Spotify</a>
 					</div>
 
  			</div>
 		</div>
 	</div>
+
+	<!-- jquery -->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<!-- bootstrap js -->
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<!-- underscore -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+	<!-- custom script -->
+	<script type="text/javascript" src="script.js"></script>
+
 </body>
 </html>
